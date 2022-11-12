@@ -17,14 +17,13 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template('template.html')
-    # , item = newITEM)
 
 @app.route('/insert', methods = ['POST'])
 def insert():
     db = client.fridge
     date = request.values['itemDate']
     date =date.replace('-', '')
-    ITEM = {"_id": uuid.uuid4().hex, "Name": request.values['itemName'], "ExpireDate": datetime.strptime(date,"%Y%m%d"), "Num": request.values['itemNum'],"Type": request.values['itemType']}
+    ITEM = {"_id": uuid.uuid4().hex, "Name": request.values['itemName'], "ExpireDate": datetime.strptime(date,"%Y%m%d"),"Place": request.values['itemPlace'], "Num": request.values['itemNum'],"Type": request.values['itemType']}
     db.item.insert_one(ITEM)
     # return jsonify(ITEM), 200
     return redirect(url_for('index'))
@@ -54,6 +53,18 @@ def statebad(time):
     m = date.month
     d = date.day
     ITEM = db.item.find({'ExpireDate': {"$lt": datetime(y,m,d)}})
+    return jsonify(list(ITEM))
+
+@app.route('/cold', methods=['GET', 'POST'])
+def cold():
+    db = client.fridge
+    ITEM = db.item.find({'Place': 'cold'})
+    return jsonify(list(ITEM))
+
+@app.route('/frozer', methods=['GET', 'POST'])
+def frozer():
+    db = client.fridge
+    ITEM = db.item.find({'Place': 'frozer'})
     return jsonify(list(ITEM))
 
 @app.route('/tag/<tagName>', methods=['GET', 'POST'])
@@ -86,7 +97,7 @@ def edit(_id):
     db = client.fridge
     date = request.values['itemDate']
     date =date.replace('-', '')
-    update = {'Name': request.values['itemName'], "ExpireDate": datetime.strptime(date,"%Y%m%d"), "Num": request.values['itemNum'],"Type": request.values['itemType']}
+    update = {'Name': request.values['itemName'], "ExpireDate": datetime.strptime(date,"%Y%m%d"), "Place": request.values['itemPlace'], "Num": request.values['itemNum'],"Type": request.values['itemType']}
     db.item.update_one({'_id': _id}, {'$set': update})
     # return 'id ' + str(_id) +  ' Name '+ request.values['itemName']+ " ExpireDate "+request.values['itemDate'] + " Num " + request.values['itemNum'] + " Type "+ request.values['itemType']
     return redirect(url_for('index'))

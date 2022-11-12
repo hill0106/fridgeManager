@@ -60,7 +60,11 @@
                     <button type="button" class="btn btn-outline-info btn-sm sauce-btn" data-source="sauce"><i class="fa-solid fa-bottle-water"></i> 醬料</button>
                     <button type="button" class="btn btn-outline-info btn-sm other-btn" data-source="other"><i class="fa-solid fa-circle-info"></i> 其他</button>
                 </div>
-                
+                <h1 class="expire-txt">位置</h1>
+                <div class="place-container">
+                    <button type="button" class="btn btn-outline-info btn-sm cold-btn" data-source="cold">冷藏</button>
+                    <button type="button" class="btn btn-outline-info btn-sm fro-btn" data-source="frozer">冷凍</button>
+                </div>
             </div>
         </div>
 
@@ -75,11 +79,6 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- <div class="input-group mb-3">
-                            <span class="input-group-text" id="task-form-display">Task</span>
-                            <input type="text" class="form-control" placeholder="Description of task"
-                                                            aria-label="task-name" aria-describedby="basic-addon1">
-                        </div> -->
                         <div class="add-panel">
                             <h1 style="margin: 10px 0px; font-size: 20px; font-weight: 700;">新增商品</h1>
                             <div class="info-container">
@@ -96,10 +95,17 @@
                                         <label for="exampleFormControlInput1" class="form-label">數量</label>
                                         <input type="number" class="itemNum" id="exampleFormControlInput1" min="1" name="itemNum">
                                     </div>
-                                    <!-- <div class="mb-3">
-                                        <label for="formFile" class="form-label">上傳圖片</label>
-                                        <input class="form-control" type="file" id="formFile" name="itemImg" accept="image/*">
-                                    </div> -->
+                                    <h1 class="expire-txt">位置</h1>
+                                    <div class="place-container">
+                                        <div class="form-check form-check-inline">
+                                            <input class="itemType" type="radio" name="itemPlace" id="inlineRadio1" value="cold">
+                                            <label class="form-check-label" for="inlineRadio1">冷藏</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="itemType" type="radio" name="itemPlace" id="inlineRadio2" value="frozer">
+                                            <label class="form-check-label" for="inlineRadio2">冷凍</label>
+                                        </div>
+                                    </div>
                                     <h1 class="expire-txt">類別</h1>
                                     <div class="type-container">
                                         <div class="form-check form-check-inline">
@@ -183,10 +189,17 @@
                                         <label for="exampleFormControlInput1" class="form-label">數量</label>
                                         <input type="number" class="itemNum" id="exampleFormControlInput1" min="1" name="itemNum">
                                     </div>
-                                    <!-- <div class="mb-3">
-                                        <label for="formFile" class="form-label">上傳圖片</label>
-                                        <input class="form-control" type="file" id="formFile" name="itemImg" accept="image/*">
-                                    </div> -->
+                                    <h1 class="expire-txt">位置</h1>
+                                    <div class="place-container">
+                                        <div class="form-check form-check-inline">
+                                            <input class="itemType" type="radio" name="itemPlace" id="inlineRadio1" value="cold">
+                                            <label class="form-check-label" for="inlineRadio1">冷藏</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="itemType" type="radio" name="itemPlace" id="inlineRadio2" value="frozer">
+                                            <label class="form-check-label" for="inlineRadio2">冷凍</label>
+                                        </div>
+                                    </div>
                                     <h1 class="expire-txt">類別</h1>
                                     <div class="type-container">
                                         <div class="form-check form-check-inline">
@@ -251,6 +264,7 @@
             <thead>
             <tr>
                 <th class="task">商品</th>
+                <th class="task">位置</th>
                 <th class="expire">到期日</th>
                 <th class="number">數量</th>
                 <th class="type">類別</th>

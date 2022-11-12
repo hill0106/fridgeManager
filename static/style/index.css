@@ -74,7 +74,7 @@ body {
   }
 
   .add-panel {
-    height: 70vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -286,7 +286,7 @@ body {
     box-shadow: none;
   }
 
-.add_all, .time-container, .btn-container, .badge-container {
+.add_all, .time-container, .btn-container, .badge-container, .place-container {
   display: flex;
   margin: 10px 0px;
 }
@@ -310,9 +310,21 @@ body {
   border-color: #79b55d;
 }
 
+.place-container button {
+  color: #ffc107;
+  border-color: #ffc107;
+}
+
 .badge-container button:hover, .badge-container button:focus {
   color: white;
   background-color: #79b55d;
+  border: none;
+  box-shadow: none;
+}
+
+.place-container button:hover, .place-container button:focus {
+  color: white;
+  background-color: #ffc107;
   border: none;
   box-shadow: none;
 }
@@ -341,7 +353,7 @@ body {
     align-items: center;
 }
 
-.add-panel .form-check-label{
+.add-panel .type-container .form-check-label{
     border: solid 0.07rem #79b55d;
     border-radius: 5px;
     margin: 3px 7px;
@@ -350,16 +362,44 @@ body {
     color: #79b55d;
 }
 
+.add-panel .place-container .form-check-label{
+  border: solid 0.07rem #ffc107;
+  border-radius: 5px;
+  margin: 7px;
+    padding: 5px 7px;
+  color: #ffc107;
+}
+
 .btn-primary {
   color: #0d6efd;
   background: none;
   width: 5vw;
 }
 
-.table-responsive span {
+.typeTD .click {
   background: none;
   border: solid 0.07rem #79b55d;
   color: #79b55d;
+}
+
+.typeTD .material-symbols-outlined{
+  margin: 0px 10px;
+    height: 0vw;
+    width: 0vw;
+    font-size: 20px;
+}
+
+.typeTD span {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 5vw;
+}
+
+.placeTD span {
+  background: none;
+  border: solid 0.07rem #ffc107;
+  color: #ffc107;
 }
 
 @media screen and (min-width:1900px) {
