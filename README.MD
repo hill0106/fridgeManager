@@ -5,9 +5,11 @@
 * 框架：flask
 * 資料庫: MongoDB
 
-##### run app
+
+##### Run the app
 ```
 $ python app.py
 ```
 
-![Website Outlook]("https://ibb.co/JHNLrTd")
+##### Website outlook
+![Website Outlook](./web.png)
